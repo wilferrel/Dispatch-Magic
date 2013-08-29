@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC70B666CD544476989E17E7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54D0877D6DD4884879507E4 /* libPods.a */; };
 		EDCC526917CC43010054E0B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCC526817CC43010054E0B4 /* Foundation.framework */; };
 		EDCC526B17CC43010054E0B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCC526A17CC43010054E0B4 /* CoreGraphics.framework */; };
 		EDCC526D17CC43010054E0B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCC526C17CC43010054E0B4 /* UIKit.framework */; };
 		EDCC527317CC43010054E0B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDCC527117CC43010054E0B4 /* InfoPlist.strings */; };
 		EDCC527517CC43010054E0B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC527417CC43010054E0B4 /* main.m */; };
 		EDCC527917CC43010054E0B4 /* XYZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC527817CC43010054E0B4 /* XYZAppDelegate.m */; };
-		EDCC527C17CC43010054E0B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCC527A17CC43010054E0B4 /* Main.storyboard */; };
-		EDCC527F17CC43010054E0B4 /* XYZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC527E17CC43010054E0B4 /* XYZViewController.m */; };
 		EDCC528117CC43010054E0B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDCC528017CC43010054E0B4 /* Images.xcassets */; };
 		EDCC528817CC43020054E0B4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCC528717CC43020054E0B4 /* XCTest.framework */; };
 		EDCC528917CC43020054E0B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCC526817CC43010054E0B4 /* Foundation.framework */; };
 		EDCC528A17CC43020054E0B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCC526C17CC43010054E0B4 /* UIKit.framework */; };
 		EDCC529217CC43020054E0B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDCC529017CC43020054E0B4 /* InfoPlist.strings */; };
 		EDCC529417CC43020054E0B4 /* Dispatch_MagicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC529317CC43020054E0B4 /* Dispatch_MagicTests.m */; };
+		EDCC529E17CC43240054E0B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCC529D17CC43240054E0B4 /* Main.storyboard */; };
+		EDCC52A117CC434E0054E0B4 /* XYZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC52A017CC434E0054E0B4 /* XYZViewController.m */; };
+		EDF5EC5A17CEC6A700A8FDE9 /* taximagic.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF5EC5917CEC6A700A8FDE9 /* taximagic.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		609F963105884DC598E89391 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		E54D0877D6DD4884879507E4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDCC526517CC43010054E0B4 /* Dispatch Magic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispatch Magic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDCC526817CC43010054E0B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EDCC526A17CC43010054E0B4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -44,15 +48,16 @@
 		EDCC527617CC43010054E0B4 /* Dispatch Magic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dispatch Magic-Prefix.pch"; sourceTree = "<group>"; };
 		EDCC527717CC43010054E0B4 /* XYZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYZAppDelegate.h; sourceTree = "<group>"; };
 		EDCC527817CC43010054E0B4 /* XYZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYZAppDelegate.m; sourceTree = "<group>"; };
-		EDCC527B17CC43010054E0B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EDCC527D17CC43010054E0B4 /* XYZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYZViewController.h; sourceTree = "<group>"; };
-		EDCC527E17CC43010054E0B4 /* XYZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYZViewController.m; sourceTree = "<group>"; };
 		EDCC528017CC43010054E0B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EDCC528617CC43020054E0B4 /* Dispatch MagicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dispatch MagicTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDCC528717CC43020054E0B4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EDCC528F17CC43020054E0B4 /* Dispatch MagicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Dispatch MagicTests-Info.plist"; sourceTree = "<group>"; };
 		EDCC529117CC43020054E0B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EDCC529317CC43020054E0B4 /* Dispatch_MagicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dispatch_MagicTests.m; sourceTree = "<group>"; };
+		EDCC529D17CC43240054E0B4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EDCC529F17CC43420054E0B4 /* XYZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZViewController.h; sourceTree = "<group>"; };
+		EDCC52A017CC434E0054E0B4 /* XYZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZViewController.m; sourceTree = "<group>"; };
+		EDF5EC5917CEC6A700A8FDE9 /* taximagic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taximagic.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +68,7 @@
 				EDCC526B17CC43010054E0B4 /* CoreGraphics.framework in Frameworks */,
 				EDCC526D17CC43010054E0B4 /* UIKit.framework in Frameworks */,
 				EDCC526917CC43010054E0B4 /* Foundation.framework in Frameworks */,
+				BC70B666CD544476989E17E7 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +92,7 @@
 				EDCC528D17CC43020054E0B4 /* Dispatch MagicTests */,
 				EDCC526717CC43010054E0B4 /* Frameworks */,
 				EDCC526617CC43010054E0B4 /* Products */,
+				609F963105884DC598E89391 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +112,7 @@
 				EDCC526A17CC43010054E0B4 /* CoreGraphics.framework */,
 				EDCC526C17CC43010054E0B4 /* UIKit.framework */,
 				EDCC528717CC43020054E0B4 /* XCTest.framework */,
+				E54D0877D6DD4884879507E4 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,11 +120,12 @@
 		EDCC526E17CC43010054E0B4 /* Dispatch Magic */ = {
 			isa = PBXGroup;
 			children = (
+				EDF5EC5917CEC6A700A8FDE9 /* taximagic.png */,
 				EDCC527717CC43010054E0B4 /* XYZAppDelegate.h */,
 				EDCC527817CC43010054E0B4 /* XYZAppDelegate.m */,
-				EDCC527A17CC43010054E0B4 /* Main.storyboard */,
-				EDCC527D17CC43010054E0B4 /* XYZViewController.h */,
-				EDCC527E17CC43010054E0B4 /* XYZViewController.m */,
+				EDCC529D17CC43240054E0B4 /* Main.storyboard */,
+				EDCC529F17CC43420054E0B4 /* XYZViewController.h */,
+				EDCC52A017CC434E0054E0B4 /* XYZViewController.m */,
 				EDCC528017CC43010054E0B4 /* Images.xcassets */,
 				EDCC526F17CC43010054E0B4 /* Supporting Files */,
 			);
@@ -159,9 +168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDCC529717CC43020054E0B4 /* Build configuration list for PBXNativeTarget "Dispatch Magic" */;
 			buildPhases = (
+				F9A5584DB30B4CD99A2F0950 /* Check Pods Manifest.lock */,
 				EDCC526117CC43010054E0B4 /* Sources */,
 				EDCC526217CC43010054E0B4 /* Frameworks */,
 				EDCC526317CC43010054E0B4 /* Resources */,
+				E16606B77817405A82C40DCA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,7 +242,8 @@
 			files = (
 				EDCC528117CC43010054E0B4 /* Images.xcassets in Resources */,
 				EDCC527317CC43010054E0B4 /* InfoPlist.strings in Resources */,
-				EDCC527C17CC43010054E0B4 /* Main.storyboard in Resources */,
+				EDCC529E17CC43240054E0B4 /* Main.storyboard in Resources */,
+				EDF5EC5A17CEC6A700A8FDE9 /* taximagic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,14 +257,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E16606B77817405A82C40DCA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9A5584DB30B4CD99A2F0950 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EDCC526117CC43010054E0B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDCC527F17CC43010054E0B4 /* XYZViewController.m in Sources */,
 				EDCC527917CC43010054E0B4 /* XYZAppDelegate.m in Sources */,
 				EDCC527517CC43010054E0B4 /* main.m in Sources */,
+				EDCC52A117CC434E0054E0B4 /* XYZViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,14 +326,6 @@
 				EDCC527217CC43010054E0B4 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		EDCC527A17CC43010054E0B4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EDCC527B17CC43010054E0B4 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		EDCC529017CC43020054E0B4 /* InfoPlist.strings */ = {
@@ -372,6 +409,7 @@
 		};
 		EDCC529817CC43020054E0B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609F963105884DC598E89391 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -385,6 +423,7 @@
 		};
 		EDCC529917CC43020054E0B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609F963105884DC598E89391 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -455,6 +494,7 @@
 				EDCC529917CC43020054E0B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EDCC529A17CC43020054E0B4 /* Build configuration list for PBXNativeTarget "Dispatch MagicTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +503,7 @@
 				EDCC529C17CC43020054E0B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
