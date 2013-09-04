@@ -9,102 +9,55 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="SNAViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2T1-2X-YEK"/>
-                        <viewControllerLayoutGuide type="bottom" id="WXr-O5-MdQ"/>
+                        <viewControllerLayoutGuide type="top" id="twp-GD-6Ff"/>
+                        <viewControllerLayoutGuide type="bottom" id="H3F-ne-yZa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="taximagic.png" translatesAutoresizingMaskIntoConstraints="NO" id="eto-HC-NMf">
-                                <rect key="frame" x="-87" y="64" width="496" height="500"/>
+                            <imageView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="taximagic.png" translatesAutoresizingMaskIntoConstraints="NO" id="J8i-f4-gdt">
+                                <rect key="frame" x="-88" y="35" width="496" height="587"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgg-iq-3c7">
-                                <rect key="frame" x="62" y="253" width="144" height="34"/>
+                                <rect key="frame" x="76" y="388" width="144" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Dispatch Taxi">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="SUBMIT" backgroundImage="customize-ios-app-icons-without-jailbreaking-your-iphone.w654.jpg">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="assignAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ThR-bW-P89"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YW9-BV-wUV">
-                                <rect key="frame" x="58" y="317" width="144" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="On Site">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSiteAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aPJ-Bh-RK6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKh-aK-Sbd">
-                                <rect key="frame" x="96" y="358" width="77" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Meter On">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="meterOnAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8iE-el-iBq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1m-xM-2yN">
-                                <rect key="frame" x="90" y="388" width="90" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Meter Off">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="meterOffAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8tK-LD-7Wq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kt5-YI-SKZ">
-                                <rect key="frame" x="85" y="427" width="109" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Provider Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="providerCancelAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Cex-U4-CiH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXB-Tw-t0c">
-                                <rect key="frame" x="91" y="286" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Re-Dispatch">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="reDispatchAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aRI-5e-5MF"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gId-Vk-X60">
-                                <rect key="frame" x="-32" y="-13" width="320" height="162"/>
+                                <rect key="frame" x="-12" y="129" width="321" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="QDZ-cu-BdJ"/>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="fcu-YL-EyR"/>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="k7k-8H-yRl"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Ksr-0F-6k4"/>
                                 </connections>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="    Ride ID" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u3F-v6-168">
-                                <rect key="frame" x="86" y="169" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="    Ride ID" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u3F-v6-168" colorLabel="IBBuiltInLabel-Red">
+                                <rect key="frame" x="100" y="91" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="rideIDTextField:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="AHA-RB-3uH"/>
                                     <action selector="textFieldAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YLU-Hd-glC"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="y1Q-eX-qfO"/>
                                 </connections>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G4S-8N-aZN">
+                                <rect key="frame" x="0.0" y="5" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Dispatch Magic" id="4sW-G8-Mb0"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
@@ -113,15 +66,17 @@
                         </accessibility>
                     </view>
                     <connections>
-                        <outlet property="envPicker" destination="gId-Vk-X60" id="9Wr-b0-0GF"/>
+                        <outlet property="picker" destination="gId-Vk-X60" id="jJ3-cn-ewe"/>
                         <outlet property="rideIDTextField" destination="u3F-v6-168" id="d1x-lO-rIF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="161" y="-36"/>
         </scene>
     </scenes>
     <resources>
+        <image name="customize-ios-app-icons-without-jailbreaking-your-iphone.w654.jpg" width="384" height="384"/>
         <image name="taximagic.png" width="496" height="500"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

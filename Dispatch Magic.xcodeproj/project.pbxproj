@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC70B666CD544476989E17E7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54D0877D6DD4884879507E4 /* libPods.a */; };
+		ED8C457117D7968500DA9B28 /* customize-ios-app-icons-without-jailbreaking-your-iphone.w654.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8C457017D7968500DA9B28 /* customize-ios-app-icons-without-jailbreaking-your-iphone.w654.jpg */; };
 		EDCC526917CC43010054E0B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCC526817CC43010054E0B4 /* Foundation.framework */; };
 		EDCC526B17CC43010054E0B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCC526A17CC43010054E0B4 /* CoreGraphics.framework */; };
 		EDCC526D17CC43010054E0B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCC526C17CC43010054E0B4 /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		609F963105884DC598E89391 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E54D0877D6DD4884879507E4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED4ED51717D67630003CBD02 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
+		ED8C457017D7968500DA9B28 /* customize-ios-app-icons-without-jailbreaking-your-iphone.w654.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "customize-ios-app-icons-without-jailbreaking-your-iphone.w654.jpg"; path = "../../../Downloads/customize-ios-app-icons-without-jailbreaking-your-iphone.w654.jpg"; sourceTree = "<group>"; };
 		EDCC526517CC43010054E0B4 /* Dispatch Magic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispatch Magic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDCC526817CC43010054E0B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EDCC526A17CC43010054E0B4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,6 +111,7 @@
 		EDCC526717CC43010054E0B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED4ED51717D67630003CBD02 /* libPods-AFNetworking.a */,
 				EDCC526817CC43010054E0B4 /* Foundation.framework */,
 				EDCC526A17CC43010054E0B4 /* CoreGraphics.framework */,
 				EDCC526C17CC43010054E0B4 /* UIKit.framework */,
@@ -120,6 +124,7 @@
 		EDCC526E17CC43010054E0B4 /* Dispatch Magic */ = {
 			isa = PBXGroup;
 			children = (
+				ED8C457017D7968500DA9B28 /* customize-ios-app-icons-without-jailbreaking-your-iphone.w654.jpg */,
 				EDF5EC5917CEC6A700A8FDE9 /* taximagic.png */,
 				EDCC527717CC43010054E0B4 /* XYZAppDelegate.h */,
 				EDCC527817CC43010054E0B4 /* XYZAppDelegate.m */,
@@ -242,6 +247,7 @@
 			files = (
 				EDCC528117CC43010054E0B4 /* Images.xcassets in Resources */,
 				EDCC527317CC43010054E0B4 /* InfoPlist.strings in Resources */,
+				ED8C457117D7968500DA9B28 /* customize-ios-app-icons-without-jailbreaking-your-iphone.w654.jpg in Resources */,
 				EDCC529E17CC43240054E0B4 /* Main.storyboard in Resources */,
 				EDF5EC5A17CEC6A700A8FDE9 /* taximagic.png in Resources */,
 			);
@@ -416,6 +422,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dispatch Magic/Dispatch Magic-Prefix.pch";
 				INFOPLIST_FILE = "Dispatch Magic/Dispatch Magic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -430,6 +437,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dispatch Magic/Dispatch Magic-Prefix.pch";
 				INFOPLIST_FILE = "Dispatch Magic/Dispatch Magic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
