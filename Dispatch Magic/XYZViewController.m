@@ -10,6 +10,10 @@
 #import <AFNetworking/AFJSONRequestOperation.h>
 #import <AFNetworking/AFNetworking.h>
 
+#define XYZ_ENVIRONMENTS 0
+#define XYZ_EVENTS 1
+#define XYZ_LOCATIONS 2
+
 @interface SNAViewController ()
 
 
@@ -23,9 +27,19 @@
 {
     [super viewDidLoad];
    
-    self._environments = @[@"trunk", @"release"];
-    self._events = @[@"assign", @"on_site", @"meter_on", @"meter_off", @"provider_cancel", @"gps"];
-    self._locations = @[@"DC", @"DCA", @"HQ", @"JFK", @"LA", @"LAX", @"LHR", @"LON", @"NYC", @"SF", @"SFO"];
+    self.environments = @[@"trunk", @"release"];
+    self.events = @[@"assign", @"on_site", @"meter_on", @"meter_off", @"provider_cancel", @"gps"];
+    self.locations = @[@"DC", @"DCA", @"HQ", @"JFK", @"LA", @"LAX", @"LHR", @"LON", @"NYC", @"SF", @"SFO"];
+    
+    
+    //CORRECT WAY TO DISMISS KEYBOARD
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action: @selector(dismissKeyboard)];
+    
+    //recognizer.numberOfTapsRequired
+    
+    //.view is the actual view name the method will run on.
+    [self.view addGestureRecognizer:recognizer];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,10 +56,17 @@
 }
 
 //THIS METHOD CLOSES KEYBOARD WHEN TOUCHED OUTSIDE OF TEXT FIELD
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [self.rideIDTextField resignFirstResponder];
+//}
+
+
+//Per Nic, this is the correct method to use to dismiss keyboard, see UITapGestureRecognizer above...
+- (void)dismissKeyboard {
     [self.rideIDTextField resignFirstResponder];
 }
+
 
 - (IBAction)assignAction:(UIButton *)sender {
     NSLog(@"PRESSED THE SUBMIT BUTTON");
@@ -57,47 +78,47 @@
     
  
     //SET LAT AND LON FOR LOCATIONS IN PICKER
-    if ([self._locations[selectLocation] isEqual: @"HQ"]) {
+    if ([self.locations[selectLocation] isEqualToString: @"HQ"]) {
             self.latitude = @"38.79271";
             self.longitude = @"-77.06002";
     }
-    else if ([self._locations[selectLocation] isEqual: @"DC"]) {
+    else if ([self.locations[selectLocation] isEqualToString: @"DC"]) {
             self.latitude = @"38.906";
             self.longitude = @"-77.036";
     }
-    else if ([self._locations[selectLocation] isEqual: @"DCA"]) {
+    else if ([self.locations[selectLocation] isEqualToString: @"DCA"]) {
         self.latitude = @"38.8496";
         self.longitude = @"-77.0425";
     }
-    else if ([self._locations[selectLocation] isEqual: @"JFK"]) {
+    else if ([self.locations[selectLocation] isEqualToString: @"JFK"]) {
         self.latitude = @"40.6461";
         self.longitude = @"-73.7821";
     }
-    else if ([self._locations[selectLocation] isEqual: @"LA"]) {
+    else if ([self.locations[selectLocation] isEqualToString: @"LA"]) {
         self.latitude = @"34.105";
         self.longitude = @"-118.25";
     }
-    else if ([self._locations[selectLocation] isEqual: @"LAX"]) {
+    else if ([self.locations[selectLocation] isEqualToString: @"LAX"]) {
         self.latitude = @"33.9446";
         self.longitude = @"-118.4095";
     }
-    else if ([self._locations[selectLocation] isEqual: @"LHR"]) {
+    else if ([self.locations[selectLocation] isEqualToString: @"LHR"]) {
         self.latitude = @"51.4709";
         self.longitude = @"-0.452";
     }
-    else if ([self._locations[selectLocation] isEqual: @"LON"]) {
+    else if ([self.locations[selectLocation] isEqualToString: @"LON"]) {
         self.latitude = @"51.527";
         self.longitude = @"-0.129";
     }
-    else if ([self._locations[selectLocation] isEqual: @"NYC"]) {
+    else if ([self.locations[selectLocation] isEqualToString: @"NYC"]) {
         self.latitude = @"40.70730";
         self.longitude = @"-74.01103";
     }
-    else if ([self._locations[selectLocation] isEqual: @"SF"]) {
+    else if ([self.locations[selectLocation] isEqualToString: @"SF"]) {
         self.latitude = @"37.7799";
         self.longitude = @"-122.419";
     }
-    else if ([self._locations[selectLocation] isEqual: @"SFO"]) {
+    else if ([self.locations[selectLocation] isEqualToString: @"SFO"]) {
         self.latitude = @"37.6218";
         self.longitude = @"-122.3810";
     }
@@ -108,13 +129,23 @@
     httpClient.requestSerializer = [AFJSONSerializer serializer];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
                                                        URLString:[NSString stringWithFormat:@"http://www.%@.ridecharge.com/services/fleet_events/ride_charge/fake/1/aaeeff11",
-                                                                  self._environments[selectEnv]
+                                                                  self.environments[selectEnv]
                                                                   ]
-                                                      parameters:@{@"event":self._events[selectEvent], @"latitude":self.latitude, @"longitude":self.longitude, @"ride_id":self.rideIDTextField.text, @"driver_id":@"1", @"vehicle_number":@"222", @"driver_phone_number":@"5555555555", @"driver_name":@"Mr. iOS"}
+                                                      parameters:@{@"event":self.events[selectEvent], @"latitude":self.latitude, @"longitude":self.longitude, @"ride_id":self.rideIDTextField.text, @"driver_id":@"1", @"vehicle_number":@"222", @"driver_phone_number":@"5555555555", @"driver_name":@"Mr. iOS"}
                                     ];
    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"App.net Global Stream: %@", JSON);
+        
+        NSString *message = [NSString stringWithFormat:@"%@ event was successful for %@",
+                             self.events[selectEvent], self.environments[selectEnv]
+                             ];
+        
+        UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        //call method with []
+        [successAlert show];
+        
+        NSLog(@"%@", JSON);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"Error %@", error);
     }];
@@ -140,28 +171,29 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (component == environments)
-        return self._environments.count;
+    if (component == XYZ_ENVIRONMENTS)
+        return self.environments.count;
     
-    if (component == events)
-    return self._events.count;
+    if (component == XYZ_EVENTS)
+    return self.events.count;
     
-    if (component == locations)
-        return self._locations.count;
+    if (component == XYZ_LOCATIONS)
+        return self.locations.count;
     
     return 0;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (component == environments)
-    return [self._environments objectAtIndex:row];
     
-    if (component == events)
-    return [self._events objectAtIndex:row];
+    if (component == XYZ_ENVIRONMENTS)
+    return [self.environments objectAtIndex:row];
     
-    if (component == locations)
-        return [self._locations objectAtIndex:row];
+    if (component == XYZ_EVENTS)
+    return [self.events objectAtIndex:row];
+    
+    if (component == XYZ_LOCATIONS)
+    return [self.locations objectAtIndex:row];
     
     return 0;
 }

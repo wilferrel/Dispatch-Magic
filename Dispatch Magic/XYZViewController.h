@@ -7,20 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#define environments 0
-#define events 1
-#define locations 2
+
 
 @interface SNAViewController : UIViewController
 <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
 
-@property (strong, nonatomic) NSArray* _environments;
+@property (strong, nonatomic) NSArray* environments;
 
-@property (strong, nonatomic) NSArray* _events;
+@property (strong, nonatomic) NSArray* events;
 
-@property (strong, nonatomic) NSArray* _locations;
+@property (strong, nonatomic) NSArray* locations;
 
 @property (strong, nonatomic) id latitude;
 @property (strong, nonatomic) id longitude;
