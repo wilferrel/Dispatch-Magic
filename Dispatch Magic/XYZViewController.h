@@ -22,8 +22,11 @@
 
 @property (strong, nonatomic) id latitude;
 @property (strong, nonatomic) id longitude;
+@property (strong, nonatomic) id ride_id;
 
-@property (strong, nonatomic) IBOutlet UITextField *rideIDTextField;
+@property (strong, nonatomic) IBOutlet UITextField *userPhoneNumberTextField;
+@property (strong, nonatomic) IBOutlet UITextField *carNumberTextField;
+@property (strong, nonatomic) IBOutlet UITextField *driverNameTextField;
 
 
 @end

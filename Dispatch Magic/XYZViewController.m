@@ -49,9 +49,18 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField ==  self.rideIDTextField) {
-        [self.rideIDTextField resignFirstResponder];
+    if (textField ==  self.userPhoneNumberTextField) {
+        [self.userPhoneNumberTextField resignFirstResponder];
     }
+    
+    if (textField ==  self.carNumberTextField) {
+        [self.carNumberTextField resignFirstResponder];
+    }
+    
+    if (textField ==  self.driverNameTextField) {
+        [self.driverNameTextField resignFirstResponder];
+    }
+    
         return NO;
 }
 
@@ -64,7 +73,9 @@
 
 //Per Nic, this is the correct method to use to dismiss keyboard, see UITapGestureRecognizer above...
 - (void)dismissKeyboard {
-    [self.rideIDTextField resignFirstResponder];
+    [self.userPhoneNumberTextField resignFirstResponder];
+    [self.carNumberTextField resignFirstResponder];
+    [self.driverNameTextField resignFirstResponder];
 }
 
 
@@ -124,41 +135,84 @@
     }
     
     
-    //RIDE EVENT POST
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.trunk.ridecharge.com/"]];
-    httpClient.requestSerializer = [AFJSONSerializer serializer];
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
-                                                       URLString:[NSString stringWithFormat:@"http://www.%@.ridecharge.com/services/fleet_events/ride_charge/fake/1/aaeeff11",
-                                                                  self.environments[selectEnv]
-                                                                  ]
-                                                      parameters:@{@"event":self.events[selectEvent], @"latitude":self.latitude, @"longitude":self.longitude, @"ride_id":self.rideIDTextField.text, @"driver_id":@"1", @"vehicle_number":@"222", @"driver_phone_number":@"5555555555", @"driver_name":@"Mr. iOS"}
-                                    ];
-   
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        
-        NSString *message = [NSString stringWithFormat:@"%@ event was successful for %@",
-                             self.events[selectEvent], self.environments[selectEnv]
-                             ];
-        
-        UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        //call method with []
-        [successAlert show];
-        
-        NSLog(@"%@", JSON);
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"Error %@", error);
-    }];
-
-    [operation start];
+    //Get Ride ID
+    NSString *urlAsString =[NSString stringWithFormat:@"https://www.trunk.ridecharge.com/en_US/services/mobile/tm/rc/last_ride?login_cell_number=%@", self.userPhoneNumberTextField.text];
+                             NSURL *url = [NSURL URLWithString:urlAsString];
+                             NSURLRequest *get = [NSURLRequest requestWithURL:url];
     
+    AFJSONRequestOperation *execute = [AFJSONRequestOperation JSONRequestOperationWithRequest:get success:^         (NSURLRequest *get,NSHTTPURLResponse *resp, id JSON)
+                                  
+                                         {
+                                             //success
+                                             
+                                             NSNumber *ride_id = [JSON valueForKeyPath:@"ride_id"];
+                                             self.ride_id = [ride_id stringValue];
+                                             NSLog(@"%@", ride_id);
+                                             
+                                             
+                                              //RIDE EVENT POST
+                                             AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.trunk.ridecharge.com/"]];
+                                             httpClient.requestSerializer = [AFJSONSerializer serializer];
+                                             NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
+                                                                                                URLString:[NSString stringWithFormat:@"http://www.%@.ridecharge.com/services/fleet_events/ride_charge/fake/1/aaeeff11",
+                                                                                                           self.environments[selectEnv]
+                                                                                                           ]
+                                                                                               parameters:@{@"event":self.events[selectEvent], @"latitude":self.latitude, @"longitude":self.longitude, @"ride_id":self.ride_id, @"driver_id":@"1", @"vehicle_number":self.carNumberTextField.text, @"driver_phone_number":@"5555555555", @"driver_name":self.driverNameTextField.text}
+                                                                             ];
+                                             
+                                             AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                 
+                                                 NSString *message = [NSString stringWithFormat:@"%@ %@ event was successful!",
+                                                                      self.environments[selectEnv], self.events[selectEvent]
+                                                                      ];
+                                                 
+                                                 UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                                 
+                                                 //call method with []
+                                                 [successAlert show];
+                                                 
+                                                 NSLog(@"%@", JSON);
+                                             } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                 
+                                                 NSString *message = [NSString stringWithFormat:@"%@ %@ event failed!!!",
+                                                                      self.environments[selectEnv], self.events[selectEvent]
+                                                                      ];
+                                                 
+                                                 UIAlertView *failureAlert = [[UIAlertView alloc] initWithTitle:@"FAILURE" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                                 
+                                                 [failureAlert show];
+                                                 
+                                                 NSLog(@"Error %@", error);
+                                             }];
+                                             
+                                             [operation start];
+                                             
+                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *resp, NSError *error, id JSON)
+                                       
+                                         {
+                                             //error
+                                             
+                                             NSLog(@"Error contacting server: %@", [error localizedDescription]);
+                                             
+                                         }];
+     [execute start];
     
 }
 
 
-- (IBAction)rideIDTextField:(id)sender {
-    NSLog(@"Typing in the text field!!!");
+- (IBAction)userPhoneNumberTextField:(id)sender {
+    NSLog(@"Typing in the Phone Number text field!!!");
 
+}
+
+- (IBAction)carNumberTextField:(id)sender {
+    NSLog(@"Typing in the Car Number text field!!!");
+    
+}
+
+- (IBAction)driverNameTextField:(id)sender {
+    NSLog(@"Typing in the Driver Name text field!!!");
+    
 }
 
 
@@ -185,7 +239,6 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    
     if (component == XYZ_ENVIRONMENTS)
     return [self.environments objectAtIndex:row];
     
