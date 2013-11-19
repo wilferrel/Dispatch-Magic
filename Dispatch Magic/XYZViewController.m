@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
    
-    self.environments = @[@"trunk", @"release"];
+    self.environments = @[@"trunk", @"release", @"automate"];
     self.events = @[@"assign", @"on_site", @"meter_on", @"meter_off", @"provider_cancel", @"gps"];
     self.locations = @[@"DC", @"DCA", @"HQ", @"JFK", @"LA", @"LAX", @"LHR", @"LON", @"NYC", @"SF", @"SFO"];
     
@@ -136,7 +136,8 @@
     
     
     //Get Ride ID
-    NSString *urlAsString =[NSString stringWithFormat:@"https://www.trunk.ridecharge.com/en_US/services/mobile/tm/rc/last_ride?login_cell_number=%@", self.userPhoneNumberTextField.text];
+    NSString *urlAsString =[NSString stringWithFormat:@"https://www.%@.ridecharge.com/en_US/services/mobile/tm/rc/last_ride?login_cell_number=%@", self.environments[selectEnv], self.userPhoneNumberTextField.text];
+                             NSLog(@"%@", urlAsString);
                              NSURL *url = [NSURL URLWithString:urlAsString];
                              NSURLRequest *get = [NSURLRequest requestWithURL:url];
     
@@ -226,13 +227,13 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     if (component == XYZ_ENVIRONMENTS)
-        return self.environments.count;
+    return self.environments.count;
     
     if (component == XYZ_EVENTS)
     return self.events.count;
     
     if (component == XYZ_LOCATIONS)
-        return self.locations.count;
+    return self.locations.count;
     
     return 0;
 }
@@ -241,7 +242,7 @@
 {
     if (component == XYZ_ENVIRONMENTS)
     return [self.environments objectAtIndex:row];
-    
+
     if (component == XYZ_EVENTS)
     return [self.events objectAtIndex:row];
     
